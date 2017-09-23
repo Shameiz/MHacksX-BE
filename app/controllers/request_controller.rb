@@ -5,7 +5,6 @@ class RequestController < ApplicationController
 
   def send_text_message
     number_to_send_to = params[:number_to_send_to]
-    puts "#{params}"
 
     twilio_sid = "ACceb8722c8cb69f7c1a72e1c4039bef81"
     twilio_token = "119f7159d3aaaed1e15d7868e53936f2"
