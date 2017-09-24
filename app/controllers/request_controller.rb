@@ -4,7 +4,7 @@ class RequestController < ApplicationController
   end
 
   def send_text_message
-    number_to_send_to = params[:number_to_send_to]
+    recipient = params[:recipient]
 
     twilio_sid = "ACceb8722c8cb69f7c1a72e1c4039bef81"
     twilio_token = "119f7159d3aaaed1e15d7868e53936f2"
@@ -14,8 +14,8 @@ class RequestController < ApplicationController
 
     @twilio_client.api.account.messages.create(
       :from => "+1#{twilio_phone_number}",
-      :to => number_to_send_to,
-      :body => "This is a trial message for Carla. It gets sent to #{number_to_send_to}"
+      :to => recipient,
+      :body => "#{params[:message]}"
     )
   end
 end
